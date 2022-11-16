@@ -41,6 +41,8 @@ class PlayList:
     def __init__(self, nome, programas):
         self.nome = nome
         self._programas = programas
+    def __getitem__(self, item):
+        return self._programas[item]
     @property
     def listagem(self):
         return self._programas
@@ -66,7 +68,7 @@ demolidor.dar_likes()
 listinha = [atlanta, vingadores, demolidor, tmep]
 minha_playlist = PlayList('fim de semana', listinha)
 
-for programa in minha_playlist.listagem:
+for programa in minha_playlist:
     print(programa)
 
-print(f'Tamanho: {len(minha_playlist.listagem)}')
+print(f'Tamanho: {len(minha_playlist)}')
