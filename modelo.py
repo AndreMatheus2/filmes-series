@@ -47,7 +47,7 @@ class PlayList:
     def listagem(self):
         return self._programas
     @property
-    def tamanho(self):
+    def __len__(self):
         return len(self._programas)
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
@@ -71,4 +71,4 @@ minha_playlist = PlayList('fim de semana', listinha)
 for programa in minha_playlist:
     print(programa)
 
-print(f'Tamanho: {len(minha_playlist)}')
+print(f'Tamanho: {len(minha_playlist.listagem)}')
