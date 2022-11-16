@@ -27,22 +27,20 @@ class Filme(Programa):
         super().__init__(nome, ano)
         self.duracao = duracao
 
-    def  __str__imprime(self):
+    def  __str__(self):
         return f'{self._nome} - {self.ano} - {self.duracao} - {self._like}'
 
 class Serie(Programa):
     def __init__(self, nome, ano, temporadas):
         super().__init__(nome, ano)
         self.temporadas = temporadas
-    def __str__imprime(self):
+    def __str__(self):
          return f'{self._nome} - {self.ano} - {self.temporadas} - {self._like}'
 
-class PlayList:
+class PlayList(list):
     def __init__(self, nome, programas):
         self.nome = nome
-        self.programas = programas
-    def tamanho(self):
-        return len(self.programas)
+        super().__init__(programas)
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
 atlanta = Serie('atlanta', 2018, 2)
@@ -63,5 +61,5 @@ atlanta.dar_like()
 filmes_e_series = [vingadores, atlanta, demolidor, tmep]
 playlist_fim_de_semana = PlayList('fim de semana', filmes_e_series)
 
-for programa in filmes_e_series:
+for programa in playlist_fim_de_semana:
     print(programa)
